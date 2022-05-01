@@ -1,0 +1,741 @@
+body {
+  background-color: #fedf9e;
+  color: #000000;
+  font-family: "Avenir Next", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.button {
+  background-color: #000000;
+  border: 2px solid #000000;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  padding: 12px 32px 14px 32px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.site-header {
+  background-color: #fedf9e;
+  margin: 5%;
+}
+
+nav a {
+  color: black;
+  display: inline-block;
+  margin: 0 4px;
+  text-decoration: none;
+}
+nav a:first-child {
+  margin: 0 4px 0 0;
+}
+
+main {
+  margin: 0 5%;
+}
+
+.home-page {
+  display: grid;
+  font-size: 24px;
+  grid-template-columns: 50% 50%;
+  line-height: 1.4;
+  margin: 2em auto 0 auto;
+  max-width: 45em;
+  padding: 0;
+}
+.home-page h1 {
+  font-size: 1em;
+  margin: 4em 0 0 0;
+}
+.home-page .button {
+  margin: 1em 0;
+}
+
+footer {
+  background-color: #000000;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 5%;
+}
+
+@media screen and (max-width: 45em) {
+  .home-page {
+    display: block;
+  }
+}
+
+$primary-font: "Poppins", sans-serif;
+$secondary-font: "crimson text", serif;
+
+$primary-color: white; // white
+$secondary-color: black; // black
+$tertiary-color: #cc2936; // venetian red
+$quaternary-color: #343638; // arsenic: ;
+$quinary-color: #7c7c7c; // platinum
+$senary-color: #f24f65;
+
+body {
+  background-color: $primary-color;
+}
+
+/**** START NAVIGATION ***/
+.navbar {
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+@media only screen and (max-width: 750px) {
+  .navbar {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    color: black !important;
+  }
+  #brandName {
+    color: black !important;
+  }
+  #myNavbar a {
+    color: black !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #aboutNav {
+    display: none !important;
+  }
+}
+#brandName {
+  color: $primary-color;
+  font-family: $primary-font;
+  font-size: 185%;
+  line-height: 24px;
+}
+#myNavbar a {
+  color: $primary-color;
+  font-family: $primary-font;
+  -webkit-transition: font-size 1s, color 1s; /* For Safari 3.1 to 6.0 */
+  transition: font-size 1s, color 1s;
+}
+#myNavbar a:hover {
+  color: $quinary-color;
+  font-size: 102%;
+}
+#myNavbar .dropdown ul {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#myNavbar #industries {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+#myNavbar .dropdown ul li {
+  padding: 5% 0%;
+}
+
+#myNavbar .dropdown ul li a {
+  color: white !important;
+  -webkit-transition: background-color 0.5s; /* For Safari 3.1 to 6.0 */
+  transition: background-color 0.5s;
+}
+#myNavbar .dropdown ul li a:hover {
+  background-color: $tertiary-color;
+}
+/**** END NAVIGATION ****/
+
+/**** START JUMBO ****/
+.homepage-hero-module {
+  border-right: none;
+  border-left: none;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .homepage-hero-module h1 {
+    font-size: 6em;
+  }
+  .homepage-hero-module a {
+    font-size: 1em;
+    border-style: solid;
+    padding: 1% 2% 0.6% 2%;
+    margin-right: 1%;
+  }
+}
+
+@media (max-width: 600px) {
+  .homepage-hero-module h1 {
+    padding-top: 12%;
+    font-size: 3.5em;
+  }
+  #jumboButtons {
+    padding-top: 5%;
+  }
+  .homepage-hero-module a {
+    font-size: 1em;
+    border-style: solid 0.5px;
+    padding: 1% 2% 0.6% 2%;
+    margin-right: 1%;
+  }
+}
+.homepage-hero-module h1 {
+  margin-top: 4%;
+  letter-spacing: 2px;
+  font-family: $primary-font;
+}
+.homepage-hero-module h3 {
+  font-size: 1.2em;
+  font-family: $primary-font;
+}
+.homepage-hero-module hr {
+  width: 12%;
+  margin: 0;
+  border-width: 5px;
+  margin-top: 8%;
+}
+#jumboButtons {
+  margin-top: 3%;
+}
+.homepage-hero-module a {
+  font-size: 1em;
+  color: $primary-color;
+  font-family: $primary-font;
+  background-color: transparent;
+  border-style: solid;
+  padding: 1% 2% 0.6% 2%;
+  margin-right: 1%;
+  -webkit-transition: color 0.2s, background-color 0.2s, border-color 0.2s,
+    text-decoration 0.2s; /* For Safari 3.1 to 6.0 */
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s,
+    text-decoration 0.2s;
+}
+
+.homepage-hero-module a:hover {
+  color: $primary-color;
+  background-color: $tertiary-color;
+  border-color: $tertiary-color;
+  text-decoration: none !important;
+}
+.homepage-hero-module .container {
+  margin-top: 10%;
+  color: $primary-color;
+}
+.no-video .video-container video,
+.touch .video-container video {
+  display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+  display: block !important;
+}
+.video-container {
+  position: relative;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+}
+.video-container .poster img {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+}
+.video-container video {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+}
+.video-container video.fillWidth {
+  width: 100%;
+}
+/**** END JUMBO ****/
+
+/**** START DEALBAR ****/
+#dealBar {
+  color: $primary-color;
+  background-color: $tertiary-color;
+  font-family: $primary-font;
+}
+@media (min-width: 768px) {
+  #dealBar .row {
+    padding: 5% 10%;
+  }
+}
+
+@media (max-width: 650px) {
+  #dealBar .row {
+    padding: 8% 2% 12% 2%;
+  }
+  #dealBar .row .col-md-4 {
+    margin-top: 20%;
+  }
+}
+
+#dealBar a {
+  color: $primary-color;
+  border-style: solid;
+  padding: 25px 35px;
+  font-size: 120%;
+  -webkit-transition: color 0.2s, background-color 0.2s, text-decoration 0.2s; /* For Safari 3.1 to 6.0 */
+  transition: color 0.2s, background-color 0.2s, text-decoration 0.2s;
+}
+#dealBar a:hover {
+  background-color: $primary-color;
+  text-decoration: none !important;
+  color: $tertiary-color;
+  -webkit-transition: color 0.2s, background-color 0.2s, text-decoration 0.2s; /* For Safari 3.1 to 6.0 */
+  transition: color 0.2s, background-color 0.2s, text-decoration 0.2s;
+}
+#dealBar .col-md-4 {
+  text-align: center;
+}
+/**** END DEALBAR ****/
+
+/**** START OVERVIEW ****/
+#overview {
+  color: $secondary-color;
+  background-color: $primary-color;
+  font-family: $primary-font;
+  padding-top: 0%;
+  padding-bottom: 3%;
+}
+#overview hr {
+  width: 10%;
+  margin-top: 0%;
+  border-width: 3px;
+  border-color: $tertiary-color;
+  margin-left: 0;
+}
+#overview #how,
+#features,
+#choose {
+  border-radius: 5px;
+  padding: 3% 3%;
+  margin: 2% 0% 5%;
+}
+#overview .btn-default {
+  color: $secondary-color !important;
+  background-color: white !important;
+  border-radius: 0px;
+}
+#overview .btn-default.active {
+  color: $primary-color !important;
+  background-color: $tertiary-color !important;
+}
+#overview .row {
+  margin-top: 4%;
+}
+#overview h4 {
+  margin-top: 5%;
+  color: $tertiary-color;
+}
+#overview p {
+  margin-top: 0%;
+}
+/**** END OVERVIEW ****/
+
+/**** START MEET THE TEAM ****/
+#meetTeam {
+  background-image: url("https://goo.gl/ODK4Ra");
+  background-size: cover;
+  font-family: $primary-font;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+  padding-top: 2%;
+  padding-bottom: 5%;
+}
+
+@media only screen and (max-width: 767px) {
+  #meetTeam {
+    display: none !important;
+  }
+}
+#meetTeam h1 {
+  padding-top: 2%;
+  color: $primary-color;
+}
+#meetTeam hr {
+  width: 6%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  border-width: 3px;
+  border-color: $tertiary-color;
+}
+#meetTeam #headshots {
+  width: 70%;
+  margin-top: 2%;
+}
+#meetTeam div {
+  border-radius: 0px 0px 15px 15px;
+}
+
+#meetTeam .caption {
+  background-color: $tertiary-color;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-bottom: 10%;
+}
+
+#meetTeam #amitPortrait {
+  background: url("https://goo.gl/de5Nzl");
+  background-size: cover;
+  position: relative;
+  padding: 60% 40%;
+  border-radius: 15px 15px 0px 0px;
+}
+#meetTeam #elliottPortrait {
+  background: url("https://goo.gl/WM9Sgj");
+  background-size: cover;
+  position: relative;
+  padding: 60% 40%;
+  border-radius: 15px 15px 0px 0px;
+}
+#meetTeam #scottPortrait {
+  background: url("https://goo.gl/3gUV55");
+  background-size: cover;
+  position: relative;
+  padding: 60% 40%;
+  border-radius: 15px 15px 0px 0px;
+}
+#meetTeam #amitPortrait .amitLayer {
+  background-color: rgba(204, 41, 54, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px 15px 0px 0px;
+}
+#meetTeam #elliottPortrait .elliottLayer {
+  background-color: rgba(204, 41, 54, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px 15px 0px 0px;
+}
+
+#meetTeam #scottPortrait .scottLayer {
+  background-color: rgba(204, 41, 54, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px 15px 0px 0px;
+}
+#meetTeam h5,
+h6 {
+  color: white;
+  padding-left: 10%;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+}
+
+#meetTeam h5 {
+  font-size: 140%;
+  padding-top: 90%;
+  font-weight: 400;
+}
+
+#meetTeam h6 {
+  font-size: 120%;
+  padding-top: 1%;
+  font-weight: 300;
+}
+
+#meetTeam i {
+  padding: 3%;
+  font-size: 1.6em;
+  color: $primary-color;
+}
+
+#meetTeam i:hover {
+  color: $quinary-color;
+}
+#meetTeam h3 {
+  color: $secondary-color;
+  font-size: 120%;
+}
+#meetTeam h4 {
+  color: $tertiary-color;
+  font-size: 1.1em;
+}
+
+/**** END MEET THE TEAM****/
+
+/**** START ABOUT ****/
+#about .row {
+  padding-top: 4% !important;
+  padding-bottom: 4% !important;
+  background-color: $tertiary-color;
+}
+@media only screen and (max-width: 767px) {
+  #about {
+    display: none !important;
+  }
+}
+#about .col-md-4 {
+  background-color: $tertiary-color;
+}
+#about .col-md-8 {
+  background-color: $tertiary-color;
+}
+#about .row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+#about .btn-group-vertical {
+  font-family: $primary-font;
+  color: $primary-color;
+  margin-top: 14%;
+}
+
+#about button {
+  font-size: 3em;
+  background-color: $tertiary-color !important;
+  outline: none;
+  border-radius: 10px;
+  font-weight: 700;
+}
+#about button:hover {
+  background-color: $senary-color !important; /* Green */
+  color: $primary-color;
+}
+#about .active {
+  background-color: $senary-color !important; /* Green */
+  color: $primary-color;
+  box-shadow: none !important;
+  border-style: none !important;
+}
+
+#about p {
+  font-family: $primary-font;
+  padding: 5% 3%;
+  color: $primary-color;
+  font-size: 1.2em;
+}
+
+/**** END ABOUT ****/
+
+/**** START FOOTER 1 ****/
+#footer1 {
+  background-color: $secondary-color;
+  color: white;
+  font-family: $primary-font;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+#footer1 h2 {
+  font-size: 20px;
+}
+
+#footer1 .rowSection {
+  padding: 2% 10%;
+}
+
+#footer1 .col-sm-4 {
+  padding: 0% 2%;
+}
+
+#footer1 hr.shortHR {
+  width: 12%;
+  margin-top: 0%;
+  border-width: 3px;
+  margin-left: 0;
+  margin-bottom: 10%;
+}
+
+#footer1 hr.longLine {
+  border-color: $quaternary-color;
+  border-style: solid none;
+}
+
+#footer1 .postTitle {
+  color: $primary-color;
+  font-size: 1em;
+}
+
+#footer1 .subtitle {
+  color: $quinary-color;
+  font-size: 0.8em;
+}
+
+#footer1 .author {
+  color: $quaternary-color;
+  font-size: 0.8em;
+}
+
+#postOne img {
+  width: 100%;
+}
+
+#footer1 #quickLinks a {
+  color: $quinary-color;
+}
+
+#footer1 hr.noMargin {
+  margin: 2% 0%;
+}
+
+#footer1 li {
+  color: $quinary-color;
+}
+
+#footer1 #newsletter p {
+  color: $quinary-color;
+  font-size: 0.95em;
+}
+
+#footer1 #newsletter form {
+  margin-top: 10%;
+}
+
+#footer1 #newsletter input,
+button {
+  background-color: $quaternary-color !important;
+  color: $primary-color !important;
+  border-style: none !important;
+  padding: 2%;
+  margin: 0%;
+}
+
+#footer1 #newsletter input {
+  width: 70%;
+}
+
+#footer1 i {
+  color: $quinary-color;
+  font-size: 2.3em;
+  padding: 0em 0.3em;
+}
+
+#footer1 #socialMediaLinks {
+  margin-top: 8%;
+}
+
+#footer1 #socialMediaLinks i:hover {
+  color: $tertiary-color;
+}
+
+#footer1 #newsletter button {
+  width: 25%;
+  color: $primary-color !important;
+}
+/**** END FOOTER 1 ****/
+
+/**** START FOOTER 2 ****/
+#footer2 {
+  background-color: $secondary-color;
+  color: $quinary-color;
+  font-family: $primary-font;
+  padding-bottom: 1%;
+  border-top: solid 1px;
+}
+#footer2 p {
+  padding: 2% 0% 0% 0%;
+  font-size: 80%;
+}
+/**** END FOOTER 2 ****/
+
+.warpper {
+  width: 100%;
+  height: 700px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main {
+  width: 30%;
+  height: 550px;
+  background-color: rgba(7, 47, 79, 0.63);
+  margin: 50px 35%;
+  border-radius: 20px 20px 30px 30px;
+}
+.head {
+  width: 100%;
+  background-color: #f8b800;
+  height: 40px;
+  border-radius: 20px 20px 0 0;
+}
+.head p {
+  line-height: 40px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+}
+.form {
+  width: 100%;
+  height: 500px;
+}
+.name {
+  font-size: 16px;
+  color: #fff;
+  margin: 15px 0 0 5%;
+}
+.name-inp {
+  width: 90%;
+  height: 30px;
+  margin: 5px 0 0 5%;
+  font-size: 16px;
+  padding: 2px;
+  color: rgb(114, 111, 111);
+  border: 1px solid rgb(17, 67, 107);
+  background-color: rgb(231, 232, 250);
+}
+.name-inp:hover {
+  color: rgb(173, 167, 167);
+  border: 1px solid rgb(139, 139, 139);
+}
+.pass {
+  margin: 5px 0 0 5%;
+  height: 30px;
+  width: 41%;
+  padding: 2px;
+  background-color: rgb(231, 232, 250);
+  border: 1px solid rgb(17, 67, 107);
+}
+.pass:hover {
+  color: rgb(173, 167, 167);
+  border: 1px solid rgb(139, 139, 139);
+}
+.gender {
+  margin: 15px 0 0 5%;
+  color: #fff;
+  font-size: 16px;
+}
+.gen {
+  font-size: 18px;
+}
+.genm {
+  margin-left: 5%;
+}
+.sub {
+  width: 90%;
+  margin: 15px 0 0 5%;
+  font-size: 16px;
+  height: 40px;
+  background-color: #031c30;
+  border: 1px solid rgb(17, 67, 107);
+  color: #fff;
+}
+.sub:hover {
+  background-color: #e94601;
+  color: #fff;
+}

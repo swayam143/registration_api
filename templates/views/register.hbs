@@ -1,0 +1,69 @@
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+     <link rel="stylesheet" href="css/style.scss" /> 
+
+    <title>Hello, world!</title>
+
+  </head>
+  <body>
+      {{>Navbar}}
+ <div class="warpper fl">
+   <div class="main">
+     <div class="head">
+       <p> Registration Form</p>
+     </div>
+     <div class="form fl">
+       <form acton="/register" method="POST">
+         <p class="name">FIRST NAME* :</p>
+         <p><input type="text" name="fname" placeholder="First Name" class="name-inp"></p>
+         <p class="name">LAST NAME* :</p>
+         <P><input type="text" name="lname" placeholder="Last Name" class="name-inp"></P>
+         <p class="name">EMAIL* :</p>
+         <p><input type="email" name="uid" placeholder="Email" class="name-inp"></p>
+         <P class="name">PHONE* :</P>
+         <p><input type="text" name="phone" placeholder="Phone" class="name-inp"></p>
+         <p class="name">PASSWORD* :</p>
+         <p>
+           <input type="password" name="pass" placeholder="Password" class="pass">
+           <input type="password" name="pass" placeholder="Conform Password" class="pass">
+         </p>
+         <p class="gender">
+           <span class="gen">Gender</span>
+           <input type="checkbox" name="ge" class="genm">Male
+           <input type="checkbox" name="ge" class="genm">Female
+         </p>
+         <p><input type="submit" name="sb" value="SUBMIT" class="sub"></p>
+
+       </form>
+     </div>
+   </div>
+ </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
