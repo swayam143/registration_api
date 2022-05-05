@@ -6,6 +6,13 @@ require("./db/conn");
 
 const app = express();
 
+// Postman code to get data
+// app.use(express.json());
+
+//But to get data directly from any form by user
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 const port = process.env.PORT || 3000;
 
 //Give static website path if have
@@ -40,6 +47,32 @@ app.get("/", (req, res) => {
 
 app.get("/register", (req, res) => {
   res.render("register");
+});
+
+//Create new user in Database
+
+app.post("/register", async (req, res) => {
+  try {
+    const pass = req.body.pass;
+    const cpass = req.body.cpass;
+    if (pass === cpass) {
+      // res.send("passwords are  matching");
+      const registerEmployee = new Register({
+        firstname: req.body.fname,
+        lastname: req.body.lname,
+        email: req.body.email,
+        phone: req.body.phone,
+        password: pass,
+        confirmpassword: cpass,
+      });
+      const regidtered = await registerEmployee.save();
+      res.status(201).render("index");
+    } else {
+      res.send("passwords are not matching");
+    }
+  } catch (error) {
+    res.status(400).send(error);
+  }
 });
 
 app.listen(port, () => {
