@@ -1,10 +1,18 @@
 const express = require("express");
+
 const hbs = require("hbs");
+
 const path = require("path");
+
 const Register = require("./models/registers");
-require("./db/conn");
+
+const bcrypt = require("bcrypt");
 
 const app = express();
+
+require("./db/conn");
+
+require("dotenv").config();
 
 // Postman code to get data
 // app.use(express.json());
@@ -45,6 +53,8 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+// console.log(process.env.SECRET_KEY);
+
 app.get("/register", (req, res) => {
   res.render("register");
 });
@@ -65,7 +75,12 @@ app.post("/register", async (req, res) => {
         password: pass,
         confirmpassword: cpass,
       });
-      const regidtered = await registerEmployee.save();
+
+      //GENERATING WEB TOKEN
+
+      const token = await registerEmployee.generateAuthToken();
+      const registered = await registerEmployee.save();
+
       res.status(201).render("index");
     } else {
       res.send("passwords are not matching");
@@ -74,6 +89,53 @@ app.post("/register", async (req, res) => {
     res.status(400).send(error);
   }
 });
+
+app.get("/signin", (req, res) => {
+  res.render("signin");
+});
+
+//Signin Validation
+
+app.post("/signin", async (req, res) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.pass;
+    // console.log(`${email} and ${password}`);
+
+    const userEmail = await Register.findOne({ email: email });
+    // res.send(userEmail);
+
+    //bycrypt password hashing
+
+    const isMatch = bcrypt.compare(password, userEmail.password);
+
+    //GENRATING JWT TOKEN ON LOGIN
+    const token = await userEmail.generateAuthToken();
+    console.log(token);
+
+    if (isMatch) {
+      res.status(201).render("index");
+    } else {
+      res.send("password are not matching");
+    }
+  } catch (e) {
+    res.status(400).send("invalid email");
+  }
+});
+
+//Usin bcrypt for data security
+
+// const bcrypt = require("bcrypt");
+// const securePassword = async (password) => {
+//   const passwordHash = await bcrypt.hash(password, 10);
+//   console.log(passwordHash);
+
+//   //to get password when user login simply use .compare
+//   const passwordMatch = await bcrypt.compare(password, passwordHash);
+//   console.log(passwordMatch);
+// };
+
+// securePassword("thapa@123");
 
 app.listen(port, () => {
   console.log("Server is running");
