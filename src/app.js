@@ -10,6 +10,12 @@ const bcrypt = require("bcrypt");
 
 const app = express();
 
+const auth = require("./middleware/auth");
+
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
+
 require("./db/conn");
 
 require("dotenv").config();
@@ -21,7 +27,7 @@ require("dotenv").config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 //Give static website path if have
 
@@ -59,6 +65,36 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 
+//SECRET PAGE ONLY OPEN BY AUTHORISED USSER AFTER JWT TOKEN COOKIES VERIFIED
+
+app.get("/secret", auth, (req, res) => {
+  res.render("secret");
+});
+
+//LOGOUT
+
+app.get("/logout", auth, async (req, res) => {
+  try {
+    //Logout from particular phone or tablets not from all device
+    // req.user.tokens = req.user.tokens.filter((elem) => {
+    //   return elem.token !== req.token;
+    // });
+    //
+
+    //Logout from all devices
+    // req.user.tokens = [];
+    //
+
+    res.clearCookie("jwt");
+
+    console.log("logout");
+    await req.user.save();
+    res.render("signin");
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 //Create new user in Database
 
 app.post("/register", async (req, res) => {
@@ -80,6 +116,11 @@ app.post("/register", async (req, res) => {
 
       const token = await registerEmployee.generateAuthToken();
       const registered = await registerEmployee.save();
+
+      //STORED TOKEN IN COOKIES
+      res.cookie("jwt", token);
+
+      //check the cokkie at info icon near localhost url
 
       res.status(201).render("index");
     } else {
@@ -111,7 +152,10 @@ app.post("/signin", async (req, res) => {
 
     //GENRATING JWT TOKEN ON LOGIN
     const token = await userEmail.generateAuthToken();
-    console.log(token);
+    // console.log(token);
+
+    //STORED TOKEN IN COOKIES
+    res.cookie("jwt", token);
 
     if (isMatch) {
       res.status(201).render("index");
@@ -123,22 +167,12 @@ app.post("/signin", async (req, res) => {
   }
 });
 
-//Usin bcrypt for data security
-
-// const bcrypt = require("bcrypt");
-// const securePassword = async (password) => {
-//   const passwordHash = await bcrypt.hash(password, 10);
-//   console.log(passwordHash);
-
-//   //to get password when user login simply use .compare
-//   const passwordMatch = await bcrypt.compare(password, passwordHash);
-//   console.log(passwordMatch);
-// };
-
-// securePassword("thapa@123");
-
 app.listen(port, () => {
   console.log("Server is running");
 });
 
 //Note ===> in package.json we have to give   "dev": "nodemon src/app.js -e js,hbs" , to run all files like hbs we create on saving
+
+//WHENVER CLONE THIS PROJECT
+//MAKE .env file
+//SECRET_KEY=mynameisShubhamOswalmynameisShubhamOswal
